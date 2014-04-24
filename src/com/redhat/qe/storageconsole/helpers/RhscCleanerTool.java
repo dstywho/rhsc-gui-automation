@@ -28,7 +28,13 @@ import com.redhat.qe.storageconsole.te.TestEnvironmentConfig;
 public class RhscCleanerTool {
 	
 	public static void main(String[] args){
-		cleanup();
+		try{
+           cleanup();
+		}catch(Exception e){
+			System.err.println("falied to clean up rhsc");
+			e.printStackTrace();
+			System.exit(100); 
+		}
 	}
 
 	/**
